@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>表单与PHP交互</title>
+</head>
+<body>
+<!--header-->
+<header>
+    <!--hgroup-->
+    <hgroup>
+        <h1>学习</h1>
+        <h2>精彩生活</h2>
+    </hgroup>
+    <p>无止境的学习</p>
+    <nav>
+        <ul>
+            <li><a href="#">自我救赎</a></li>
+        </ul>
+    </nav>
+</header>
+<!--footer-->
+<footer>
+    <ul>
+        <li><a href="#">联系我们</a></li>
+        <li><a href="#">联系我们</a></li>
+        <li><a href="#">联系我们</a></li>
+        <li><a href="#">联系我们</a></li>
+        <li></li>
+        <li></li></ul>
+</footer>
+<!--article-->
+<!--section-->
+<article>
+    <section>
+        <h1>apple</h1>
+        <p>这是一个很好的项目.</p>
+    </section>
+    <section>
+        <h1>apple</h1>
+        <p>这是一个很好的项目.</p>
+    </section>
+<article>
+    <h1>apple</h1>
+    <p>发布时间: <time datetime="2015-10-10" pubdate>2015-10-10</time></p>
+    <p>具体时间: <time datetime="2016-12-19">2012-12-19</time></p>
+</article>
+
+
+</article>
+<section>
+    <article>
+        <h1>zhesgi1</h1>
+        <p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
+    </article>
+</section>
+<!--form-->
+<script>
+
+//    js插件验证
+    function Validate(){
+        var txtName = document.getElementById("txt_name");
+        var button = document.getElementById("btnValidate");
+        var form = document.getElementById("form");
+        if (txtName.value.trim() == ""){
+//            .trim是自动删除字符串首尾的空格
+            var label =document.createElement("label");
+            label.setAttribute("for","txt_name");
+//            .insertbefore 依托于label,并将其插入到button之前,
+            form.insertBefore(label,button);
+
+            txtName.labels[1].innerHTML = "请输入姓名";
+            txtName.labels[1].setAttribute("style","color:red");
+        }
+    }
+//    control是用来自动输入或者说是绑定属性的.
+    function txtValue() {
+        var label =document.getElementById("label2");
+        var txtBox = label.control;
+        txtBox.value = "101001";
+    }
+</script>
+
+    <form id="form" action="http://localhost:63342/H5/.idea/php/test.php" method="get" accept-charset="utf-8">
+        <label for="txt_name">用户名:<input id="txt_name" type="text" name="name"  placeholder="请输入您的昵称"><br></label>
+        <label for="pwd">密  码:<input id="pwd" type="password" name="password" placeholder="请输入密码"></label>
+        <label id="label2" for="txt_value">邮编:<input type="text" id="txt_value" maxlength="6" placeholder="请输入邮编"></label>
+        <input type="submit" id="btnValidate" value="提交" onclick="Validate()">
+        <input type="submit" id="sub" value="默认值" onclick="txtValue()">
+    </form>
+</body>
+</html>
