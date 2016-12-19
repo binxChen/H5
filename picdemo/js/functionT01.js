@@ -34,3 +34,8 @@ function multiplyByTwo(a,b,c,callback) {
     return ar;
 }
 myarr = multiplyByTwo(1,1,3,function(a){return a+1;});
+// 即时函数
+
+(function () {
+    alert('boo')
+})('dude')
