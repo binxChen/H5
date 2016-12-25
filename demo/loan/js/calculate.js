@@ -4,21 +4,23 @@ function calculate() {
     var apr = document.getElementById("apr");
     var years = document.getElementById("years");
     var zipcode = document.getElementById("zipcode");
-    var payments = document.getElementById("payment");
+    var payment = document.getElementById("payment");
     var total = document.getElementById("total");
     var totalinterest = document.getElementById("totalinterest");
 
     // 将百分比格式转换为小数格式,并将年利率转换为月利率
     // 将年赔付转换为月度赔付
     var principal = parseInt(amount.value);
-    var interest = parseFloat(apr.value);
+    var interest = parseFloat(apr.value)/100/12;
     var payments = parseFloat(years.value)*12;
     var x=Math.pow(1+interest,payments);//幂次运算
-    var monthly = (principal*x*interest);
+    var monthly = (principal*x*interest)/(x-1);
     // 如果运算合法切没有超过范围
     if(isFinite(monthly)){
-        payments.innerHTML = monthly.toFixed(2);//取小数点后2位
-        total.innerHTML = (monthly*payments).toFixed(2);
+        console.log("xb",payment);
+        payment.innerHTML=monthly.toFixed(2);
+        console.log("xb",monthly.toFixed(2));
+        total.innerHTML=(monthly*payments).toFixed(2);
         totalinterest.innerHTML = ((monthly*payments)-principal).toFixed(2);
         // 保存数据
         save(amount.value,apr.value,years.value,zipcode.value);
@@ -27,8 +29,10 @@ function calculate() {
         try {
             getLenders(amount.value,apr.value,years.value,zipcode.value);
         }catch (e){
+            chart(principal,interest,monthly,payments)}
+        }else{
             // 计算结果出错,清空
-            payments.innerHTML = "";
+            payment.innerHTML = "";
             total.innerHTML = "";
             totalinterest.innerHTML = "";
             chart();//不传参数的话就是清楚图表
@@ -72,14 +76,14 @@ function calculate() {
             }
         }
     }
-    function chart(principal,interest,monthly,oayments) {
+    function chart(principal,interest,monthly,payments) {
         var graph = document.getElementById("graph");
         graph.width = graph.width;
 
         if(arguments.length==0||!graph.getContext)return;
         var g = graph.getContext("2d");
         var width = graph.width,
-        height = graph.height;
+            height = graph.height;
 
         function paymentToX(n) {
             return n *width/payments;
@@ -142,6 +146,4 @@ function calculate() {
                 g.fillText(String(ticks[i].toFixed(0)),rightEdge-5,y);
             }
         }
-
-    }
 }
