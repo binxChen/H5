@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Loan Calculator</title>
+    <script src="./js/calculate.js"></script>
+</head>
+<body>
+        <table>
+            <tr>
+                <th>进入贷款日期:</th>
+                <td></td>
+                <th>Loan Balance,Cunulative Equity,and  Interest Payments</th>
+            </tr>
+            <tr>
+                <td>Amount of the Loan($):</td>
+                <td><input type="text" id="amount" onchange="calculate();"></td>
+                <td rowspan=8><canvas id="graph" width="400" height="250"></canvas></td>
+            </tr>
+            <tr>
+                <td>年利率(%):</td>
+                <td><input type="text" id="apr"onchange="calculate();"></td>
+            </tr>
+            <tr>
+                <td>还款期(%):</td>
+                <td><input type="text" id="years"onchange="calculate();"></td>
+            </tr>
+            <tr>
+                <td>邮编(%):</td>
+                <td><input type="text" id="zipcode"onchange="calculate();"></td>
+            </tr> <tr>
+                <td>(%):</td>
+                <td><button onclick="calculate();">Calculate</button></td>
+            </tr>
+            <tr><td>Total payment</td>
+            <td>$ <span class="output" id="payment"></span></td></tr><tr><td>Total payment</td>
+            <td>$ <span class="output" id="total"></span></td></tr><tr><td>Total payment</td>
+            <td>$ <span class="output" id="totalinterest"></span></td></tr>
+            <tr>
+                <th>Spaonsors</th>
+                <td colspan=2>
+                    Apply for <div id="lenders"></div>
+                </td>
+            </tr>
+        </table>
+</body>
+</html>
