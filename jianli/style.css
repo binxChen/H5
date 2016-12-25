@@ -1,0 +1,20 @@
+/*
+* @Author: binxchen
+* @Date:   2016-12-22 21:02:53
+* @Last Modified by:   binxchen
+* @Last Modified time: 2016-12-22 21:38:18
+*/
+
+*{margin: 0;padding: 0;list-style: none;}
+body{font-size: 14;text-decoration: none;}
+.body{width:1000px;margin: 0 auto;}
+.fl{float: left;
+}
+.fr{float: right;
+}
+//加入初级的响应式布局
+.left_l{background-color: red;}
+.left_l{background-color: blue}
+//
+.space{height: 60px;}
+.myicon{width:80px; height:80px; border-radius:50%; overflow:hidden;}
