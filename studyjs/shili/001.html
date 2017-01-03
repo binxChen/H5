@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自动刷新</title>
+    <script>
+        //刷新网页
+        function fresh() {
+            window.location.reload();
+        }
+        setTimeout('fresh()',10000);
+
+        //网页前进以及后退,在history对象中还有一个参数:go(),有一个整型参数,表示前进或者后退的页数
+        function goForword() {
+            window.history.forword();
+        }
+        function goBack() {
+            window.history.back();
+        }
+
+        //关闭窗口
+        function closeWin() {
+            window.close();
+        }
+
+
+    </script>
+
+</head>
+<body style="text-align:center;">
+        <p>网页自动刷新</p>
+    <button value="前进" onclick="goForword()"></button>
+    <button value="后退" onclick="goBack()"></button>
+</body>
+</html>
