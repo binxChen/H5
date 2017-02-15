@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+    <script>
+        //动态加载窗口
+        function submitForm() {
+            var doing = document.getElementById('doing');
+            doing.style.display = '';
+            self.location.reload();
+        }
+        //10秒内无操作关闭网页
+//        var willclose =true;
+//        function clickBody() {
+//            willclose=false;
+//        }
+//        setInterval(function () {
+//            if (willclose){
+//                window.close();
+//            }else{
+//                willclose=true;
+//            }
+//        },10000);
+        
+
+    </script>
+</head>
+<body style="text-align: center" onclick="clickBody()">
+        <!--友好界面提示层-->
+        <div id="doing" style="Z-index: 99;left: 0px;top: 0px;display: none;width: 100%;position: absolute;background:gray;">
+            <br/><br/><br/>载入中,请稍候...
+        </div>
+        <p><input type="button" value="提交表单"onclick="submitForm()"></p>
+
+</body>
+</html>
